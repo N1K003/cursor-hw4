@@ -10,12 +10,25 @@
 <div class="task">
     <h3>Task 2</h3>
     <div class="text">
-        <b>Please, send us explanation why console.log(1); setTimeout(() => { console.log(2) }, 0); console.log(3); will
-            print 1,3,2? Please, read about EventLoop at JavaScript.</b>
+        <b>Implement polyfill for Array.map. As you can check on caniuse the [].map is not supported IE 10.<br/>
+            As a best software engineer, I would like to have ability to use Array.map in my project at IE 10.<br/>
+            Can you please help me? :)<br/>
+            Send us jsfiddle, or Github Page for this polyfill.</b>
+        <hr/>
+        Polyfill is inside js/task1.js
+    </div>
+</div>
+
+<div class="task">
+    <h3>Task 2</h3>
+    <div class="text">
+        <b>Please, send us explanation why console.log(1); setTimeout(() => { console.log(2) }, 0); console.log(3);<br/>
+            will print 1,3,2? Please, read about EventLoop at JavaScript.</b>
         <hr/>
         <div class="explanation">
-            Timers (setTimeout) is just a planning mechanism which is creating task to be executed after period of time
-            (not erectly in).<br/>
+            Timers (setTimeout) is just a planning mechanism which is creating task to be executed after period of
+            time<br/>
+            (not exactly in).<br/>
             So, we are:
             <ol>
                 <li>executing task <b>console.log(1)</b></li>
@@ -29,17 +42,33 @@
 
 <div class="task">
     <h3>Task 3</h3>
+    <div class="text">
+        <b>Implement function, that will return result after 10 second. Send us Github Pages link.</b>
+        <hr/>
+    </div>
     <div class="text" id="counter">10</div>
     <button id="counterBtn">Start count down</button>
 </div>
 
 <div class="task">
     <h3>Task 4</h3>
+    <div class="text">
+        <b>Implement Promise inside Promise, haha.<br/>
+            The second Promise should call function from task #3, and you should use async and await.<br/>
+            Send us Github Pages link, as usual.</b>
+        <hr/>
+    </div>
     <button id="promiseBtn">Let's promise something...</button>
 </div>
 
 <div class="task">
     <h3>Task 5</h3>
+    <div class="text">
+        <b>Implement recursive to print only PRIME numbers from n to 1.<br/>
+            I would like to run function func(10) and see 7, 5, 3, 2, 1.<br/>
+            Please send us Github Page link.</b>
+        <hr/>
+    </div>
     <div class="text" id="primeNumbers"></div>
     <input id="primeInput" type="number">
     <button id="primeBtn">Give me primes</button>

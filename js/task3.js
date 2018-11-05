@@ -18,11 +18,11 @@ function sayHello() {
 
 function updateCounterValue() {
     const element = document.getElementById('counter');
-    const value = parseInt(element.innerHTML);
+    const value = parseInt(element.innerText);
     if (value === 0) {
         clearInterval(intervalId)
-        element.innerHTML = '10'
+        element.innerText = '10'
     } else {
-        element.innerHTML = (value - 1) + '';
+        element.innerText = (value - 1) + '';
     }
 }
