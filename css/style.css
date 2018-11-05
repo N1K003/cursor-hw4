@@ -1,0 +1,17 @@
+.task {
+    border: 5px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.task #counter {
+    font-size: 2em;
+}
+
+.task .text {
+    font-size: 1.2rem;
+}
+
+.task .text .explanation {
+    padding-left: 50px;
+}
