@@ -5,24 +5,28 @@ Send us jsfiddle, or Github Page for this polyfill.
 */
 
 if (Array.prototype.map === 'undefined') {
-    Array.prototype.map = function (fun, thisPtr) {
+    Array.prototype.map = function (arr, callback) {
         if (this === void 0 || this === null) {
             throw new TypeError("Can't assign null");
         }
 
-        if (typeof(fun) !== 'function') {
-            throw new TypeError('fun is not a function');
+	if (!Array.IsArray(arr)) {
+            throw new TypeError('arr is not an array');	
+	}
+
+        if (callback !== 'function') {
+            throw new TypeError('callback is not a function');
         }
 
-        const thisObj = Object(this);
-        const length = thisObj.length >>> 0; // fast conversation anything to positive integer (get rid of undefined if any)
+        const arr = Object(this);
+        const length = arr.length >>> 0; // fast conversation anything to positive integer (get rid of undefined if any)
 
         let result = [];
 
         for (let i = 0; i < length; i++) {
-            if (i in thisObj) {
-                let val = thisObj[i];
-                result[i] = thisPtr ? fun.call(thisPtr, val, i, thisObj) : fun(val, i, thisObj);
+            if (i in arr) {
+                let val = arr[i];
+                result[i] = arr ? callback.call(arr, val, i, arr) : callback(val, i, arr);
             }
         }
 
