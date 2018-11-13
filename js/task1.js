@@ -7,20 +7,20 @@ Send us jsfiddle, or Github Page for this polyfill.
 if (!Array.prototype.map) {
     Array.prototype.map = function (callback) {
         if (this === void 0 || this === null) {
-            throw new TypeError("\"this\" can't be null);
+            throw new TypeError('"this" can\'t be null');
         }
 
-	if (!Array.IsArray(this)) {
-            throw new TypeError('"this" must be an array');	
-	}
+        if (!Array.isArray(this)) {
+            throw new TypeError('"this" must be an array');
+        }
 
         if (typeof callback !== 'function') {
             throw new TypeError('callback is not a function');
         }
 
-	let result = [];
+        let result = [];
         for (let i = 0; i < this.length; i++) {
-                result[i] = callback(this[i], i);
+            result[i] = callback(this[i], i);
         }
 
         return result;
