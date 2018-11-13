@@ -4,30 +4,23 @@ As a best software engineer, I would like to have ability to use Array.map in my
 Send us jsfiddle, or Github Page for this polyfill.
 */
 
-if (Array.prototype.map === 'undefined') {
-    Array.prototype.map = function (arr, callback) {
+if (!Array.prototype.map) {
+    Array.prototype.map = function (callback) {
         if (this === void 0 || this === null) {
-            throw new TypeError("Can't assign null");
+            throw new TypeError("\"this\" can't be null);
         }
 
-	if (!Array.IsArray(arr)) {
-            throw new TypeError('arr is not an array');	
+	if (!Array.IsArray(this)) {
+            throw new TypeError('"this" must be an array');	
 	}
 
-        if (callback !== 'function') {
+        if (typeof callback !== 'function') {
             throw new TypeError('callback is not a function');
         }
 
-        const arr = Object(this);
-        const length = arr.length >>> 0; // fast conversation anything to positive integer (get rid of undefined if any)
-
-        let result = [];
-
-        for (let i = 0; i < length; i++) {
-            if (i in arr) {
-                let val = arr[i];
-                result[i] = arr ? callback.call(arr, val, i, arr) : callback(val, i, arr);
-            }
+	let result = [];
+        for (let i = 0; i < this.length; i++) {
+                result[i] = callback(this[i], i);
         }
 
         return result;
