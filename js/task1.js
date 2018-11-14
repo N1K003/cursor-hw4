@@ -18,7 +18,7 @@ if (!Array.prototype.map) {
             throw new TypeError('callback is not a function');
         }
 
-        let result = [];
+        const result = [];
         for (let i = 0; i < this.length; i++) {
             result[i] = callback(this[i], i);
         }

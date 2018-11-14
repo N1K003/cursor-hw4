@@ -8,11 +8,11 @@ let intervalId = 0;
 
 async function helloWrapper() {
     intervalId = setInterval(updateCounterValue, 990);
-    return await sayHello();
+    return await new Promise(() => setTimeout(() => sayHello(), 10000));
 }
 
-async function sayHello() {
-    return new Promise(() => setTimeout(() => alert('Hello, visitor'), 10000));
+function sayHello() {
+    alert('Hello, visitor');
 }
 
 function updateCounterValue() {
