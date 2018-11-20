@@ -6,8 +6,13 @@ Send us Github Pages link, as usual.
 
 document.getElementById('promiseBtn').onclick = promiseInPromise;
 
-async function promiseInPromise() {
-    return new Promise(resolve => setTimeout(() => {
-        resolve(alert('Hello from first promise'));
-    }, 10000)).then(sayHello);
+
+function promiseInPromise() {
+    return new Promise(async res => {
+        await new Promise(resolve => setTimeout(() => {
+            resolve(alert('Hello from first promise'));
+        }, 10000));
+        await helloWrapper();
+        res();
+    })
 }
