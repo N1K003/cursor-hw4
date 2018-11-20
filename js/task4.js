@@ -7,7 +7,7 @@ Send us Github Pages link, as usual.
 document.getElementById('promiseBtn').onclick = promiseInPromise;
 
 async function promiseInPromise() {
-    return await Promise.resolve(setTimeout(() => {
-        alert('Hello from first promise');
-    }, 10000)).then(await sayHello);
+    return new Promise(resolve => setTimeout(() => {
+        resolve(alert('Hello from first promise'));
+    }, 10000)).then(sayHello);
 }

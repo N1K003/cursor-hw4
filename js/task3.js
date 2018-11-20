@@ -6,9 +6,12 @@ document.querySelector('#counterBtn').onclick = helloWrapper;
 
 let intervalId = 0;
 
-async function helloWrapper() {
+function helloWrapper() {
     intervalId = setInterval(updateCounterValue, 990);
-    return await new Promise(() => setTimeout(() => sayHello(), 10000));
+    return new Promise(resolve => setTimeout(() => {
+        sayHello();
+        resolve(5);
+    }, 10000));
 }
 
 function sayHello() {
